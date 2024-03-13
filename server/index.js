@@ -1,8 +1,11 @@
 const express = require('express');
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
+const cors = require('cors')
 const app = express();
 
-const{PORT} = process.env
+const { PORT } = process.env
+
+app.use(cors())
 app.use('/', (req, res) => {
     res.send("Server is running")
 });
