@@ -1,17 +1,17 @@
 const express = require('express');
-const dotenv = require('dotenv');
+require('dotenv').config()
 const cors = require('cors')
 const app = express();
 
 const { PORT } = process.env
 
 app.use(cors())
-app.use('/', (req, res) => {
-    res.send("Server is running")
+app.use('/api/first', (req, res) => {
+    res.json({ message: "FIRST"})
 });
-app.use("/api/", (req, res) => {
+app.use("/api/second", (req, res) => {
     res.json({
-        message: "This is a route /api/"
+        message: "SECOND"
     })
 })
 

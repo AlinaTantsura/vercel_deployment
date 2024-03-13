@@ -1,14 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react'
 
-function App() {
+const App = () => {
+  const [data, setData] = useState(null);
+  fetch('http://localhost:3001/api/second').then(resp => resp.json()).then(resp => setData(resp));
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          And with routes?
-        </p>
+        {data ? <p>{data.message}</p> : <p>There is no data</p>}
+        
       </header>
     </div>
   );
