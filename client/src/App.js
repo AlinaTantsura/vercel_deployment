@@ -4,7 +4,7 @@ import {useState} from 'react'
 
 const App = () => {
   const [data, setData] = useState(null);
-  fetch('http://localhost:3001/api/second').then(resp => resp.json()).then(resp => setData(resp));
+  fetch('https://vercel-deployment-server-kappa.vercel.app/api/second').then(resp => resp.json()).then(resp => setData(resp));
   return (
     <div className="App">
       <header className="App-header">
